@@ -1,0 +1,1511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FSRR SOCOM Satellite Training Camp — Camp Kibaritan Military Reservation</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --od-green: #3B4A2F;
+  --od-green-dark: #2A3621;
+  --od-green-light: #4E6339;
+  --khaki: #C4B17D;
+  --khaki-light: #D9CFA5;
+  --sand: #E8E0C8;
+  --cream: #F5F1E6;
+  --red-accent: #8B2500;
+  --red-glow: #C13B1B;
+  --gold: #C9A93E;
+  --gold-bright: #E5C551;
+  --steel: #4A5568;
+  --charcoal: #1A1A1A;
+  --white: #FFFFFF;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
+body {
+  font-family: 'Source Serif 4', Georgia, serif;
+  background: var(--charcoal);
+  color: var(--cream);
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(26,26,26,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(196,177,125,0.15);
+  padding: 0.6rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+nav .brand {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+nav .brand span { color: var(--khaki-light); font-weight: 300; }
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+nav ul li a {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 400;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--khaki);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+nav ul li a:hover { color: var(--gold-bright); }
+
+/* SECTIONS */
+section {
+  min-height: 100vh;
+  scroll-snap-align: start;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 6rem 5vw 4rem;
+}
+
+/* HERO */
+.hero {
+  background: linear-gradient(160deg, var(--od-green-dark) 0%, var(--charcoal) 60%, #1a1510 100%);
+  text-align: center;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 800px 600px at 20% 30%, rgba(59,74,47,0.4), transparent),
+    radial-gradient(ellipse 600px 400px at 80% 70%, rgba(139,37,0,0.15), transparent),
+    repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.01) 2px, rgba(255,255,255,0.01) 4px);
+  pointer-events: none;
+}
+.hero .content { position: relative; z-index: 2; }
+.hero .classification {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--red-glow);
+  margin-bottom: 2rem;
+  animation: pulse 3s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+.hero .insignia {
+  width: 100px;
+  height: 100px;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  margin: 0 auto 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.hero .insignia::after {
+  content: '';
+  width: 120px;
+  height: 120px;
+  border: 1px solid rgba(201,169,62,0.3);
+  border-radius: 50%;
+  position: absolute;
+}
+.hero .insignia svg { width: 50px; height: 50px; }
+.hero h1 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  line-height: 1.1;
+  color: var(--cream);
+  margin-bottom: 0.5rem;
+}
+.hero h1 em {
+  font-style: normal;
+  color: var(--gold);
+  display: block;
+  font-size: 0.5em;
+  letter-spacing: 8px;
+  font-weight: 300;
+  margin-bottom: 0.5rem;
+}
+.hero .subtitle {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 300;
+  font-size: 1.1rem;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--khaki);
+  margin-bottom: 3rem;
+}
+.hero .meta-line {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  color: var(--steel);
+}
+.hero .meta-line span::before {
+  content: '▸ ';
+  color: var(--gold);
+}
+
+/* SECTION HEADERS */
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+.section-num {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 6rem;
+  color: rgba(201,169,62,0.08);
+  position: absolute;
+  top: 4rem;
+  right: 5vw;
+  line-height: 1;
+}
+h2 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--cream);
+  margin-bottom: 1.5rem;
+  line-height: 1.15;
+}
+h2 span { color: var(--gold); }
+
+/* GRID LAYOUTS */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+@media (max-width: 900px) {
+  .two-col { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+.prose {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--khaki-light);
+}
+.prose strong { color: var(--cream); font-weight: 600; }
+.prose p + p { margin-top: 1rem; }
+
+/* MAP CONTAINERS */
+.map-frame {
+  background: var(--od-green-dark);
+  border: 1px solid rgba(196,177,125,0.2);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 4/3;
+}
+.map-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  filter: saturate(0.8) brightness(0.95);
+}
+.map-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(26,26,26,0.9));
+  padding: 2rem 1.5rem 1rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 1px;
+  color: var(--khaki);
+}
+
+/* SVG MAP STYLES */
+.svg-map-container {
+  background: #1a2014;
+  border: 1px solid rgba(196,177,125,0.2);
+  border-radius: 4px;
+  padding: 1.5rem;
+  position: relative;
+}
+.svg-map-container svg {
+  width: 100%;
+  height: auto;
+}
+
+/* STAT CARDS */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+  max-width: 1400px;
+}
+.stat-card {
+  background: linear-gradient(135deg, rgba(59,74,47,0.3), rgba(26,26,26,0.8));
+  border: 1px solid rgba(196,177,125,0.15);
+  border-left: 3px solid var(--gold);
+  padding: 1.5rem;
+  border-radius: 2px;
+}
+.stat-card .value {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: 2.2rem;
+  color: var(--gold);
+  line-height: 1;
+}
+.stat-card .label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--khaki);
+  margin-top: 0.5rem;
+}
+
+/* DISTANCE TABLE */
+.distance-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.85rem;
+}
+.distance-table th {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-bottom: 2px solid rgba(201,169,62,0.3);
+  background: rgba(59,74,47,0.2);
+}
+.distance-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(196,177,125,0.08);
+  color: var(--khaki-light);
+  vertical-align: top;
+}
+.distance-table tr:hover td {
+  background: rgba(59,74,47,0.15);
+}
+.distance-table .unit-name {
+  color: var(--cream);
+  font-weight: 600;
+}
+.distance-table .dist-val {
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--gold);
+  font-size: 0.8rem;
+}
+
+/* THREAT PILLS */
+.threat-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+.threat-pill {
+  background: rgba(139,37,0,0.2);
+  border: 1px solid rgba(193,59,27,0.3);
+  color: #E8A090;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 1px;
+  padding: 0.4rem 1rem;
+  border-radius: 2px;
+  text-transform: uppercase;
+}
+
+/* CAPABILITY LIST */
+.cap-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+.cap-card {
+  background: linear-gradient(135deg, rgba(42,54,33,0.5), rgba(26,26,26,0.8));
+  border: 1px solid rgba(196,177,125,0.12);
+  padding: 1.75rem;
+  border-radius: 3px;
+  position: relative;
+  overflow: hidden;
+}
+.cap-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--gold);
+}
+.cap-card h4 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--cream);
+  margin-bottom: 0.5rem;
+}
+.cap-card p {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: var(--khaki);
+}
+
+/* TIMELINE */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 2rem 0;
+  padding-left: 2rem;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--gold), rgba(201,169,62,0.2));
+}
+.timeline-item {
+  position: relative;
+  padding: 0 0 2rem 2rem;
+}
+.timeline-item::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  background: var(--gold);
+  border-radius: 50%;
+  position: absolute;
+  left: -2.25rem;
+  top: 0.35rem;
+}
+.timeline-item h4 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.3rem;
+}
+.timeline-item p {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: var(--khaki);
+}
+
+/* CONCLUSION */
+.conclusion {
+  background: linear-gradient(160deg, var(--od-green-dark) 0%, var(--charcoal) 50%, #1a1510 100%);
+  text-align: center;
+}
+.conclusion .final-statement {
+  font-family: 'Source Serif 4', serif;
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--khaki-light);
+  max-width: 800px;
+  margin: 2rem auto;
+  line-height: 1.8;
+}
+
+/* BG TEXTURES */
+.bg-topo {
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(255,255,255,0.5) 40px, rgba(255,255,255,0.5) 41px),
+    repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(255,255,255,0.5) 40px, rgba(255,255,255,0.5) 41px);
+  pointer-events: none;
+}
+
+/* Inline map via canvas */
+.leaflet-map {
+  width: 100%;
+  height: 500px;
+  background: #1a2014;
+  border: 1px solid rgba(196,177,125,0.2);
+  border-radius: 4px;
+}
+
+/* Full-width section variants */
+.full-width-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* DIVIDER */
+.divider {
+  width: 60px;
+  height: 2px;
+  background: var(--gold);
+  margin: 1.5rem 0;
+}
+.divider.center { margin: 1.5rem auto; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  section { padding: 5rem 1.5rem 3rem; }
+  nav { padding: 0.5rem 1rem; }
+  nav ul { gap: 0.75rem; }
+  nav ul li a { font-size: 0.6rem; }
+  .section-num { font-size: 4rem; }
+  .leaflet-map { height: 350px; }
+}
+
+/* Scroll animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+<!-- Leaflet CSS & JS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="brand">FSRR • SOCOM <span>| Strategic Proposal</span></div>
+  <ul>
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#strategic">Strategic</a></li>
+    <li><a href="#location">Location</a></li>
+    <li><a href="#response">Response</a></li>
+    <li><a href="#terrain">Terrain</a></li>
+    <li><a href="#ports">Ports</a></li>
+    <li><a href="#defense-posture">Defense</a></li>
+    <li><a href="#capabilities">Capabilities</a></li>
+    <li><a href="#implementation">Plan</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+
+<!-- ═══════════════════════════════════════ HERO ═══════════════════════════════════════ -->
+<section class="hero" id="hero">
+  <div class="content">
+    <div class="classification">Philippine Army • Special Operations Command</div>
+    <h1>
+      <em>Proposal for the Establishment of</em>
+      FSRR–SOCOM<br>Satellite Training Camp
+    </h1>
+    <p class="subtitle">Camp Kibaritan Military Reservation • Bukidnon, Mindanao</p>
+    <div class="divider center"></div>
+    <div class="meta-line">
+      <span>First Scout Ranger Regiment</span>
+      <span>Special Operations Command</span>
+      <span>Philippine Army</span>
+    </div>
+    <div style="margin-top:2.5rem; font-family:'Source Serif 4', serif; font-size:0.85rem; color:var(--khaki-light); letter-spacing:1px; line-height:1.8;">
+      For:<br>
+      <span style="font-family:'Oswald', sans-serif; font-weight:500; font-size:1rem; letter-spacing:2px; text-transform:uppercase; color:var(--cream);">Commanding General, Philippine Army</span>
+    </div>
+    <div style="margin-top:1.5rem; font-family:'Source Serif 4', serif; font-size:0.85rem; color:var(--khaki-light); letter-spacing:1px; line-height:1.8;">
+      Prepared by:<br>
+      <span style="font-family:'Oswald', sans-serif; font-weight:500; font-size:1rem; letter-spacing:2px; text-transform:uppercase; color:var(--cream);">First Scout Ranger Regiment</span><br>
+      <span style="font-size:0.8rem; color:var(--khaki); letter-spacing:1.5px;">Command and Staff</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ STRATEGIC RATIONALE ═══════════════════════════════════════ -->
+<section id="strategic" style="background: linear-gradient(170deg, #1a1a1a 0%, #1f2518 50%, #1a1a1a 100%);">
+  <div class="bg-topo"></div>
+  <span class="section-num">01</span>
+  <div class="full-width-content fade-in">
+    <div class="section-label">Section 01</div>
+    <h2>Strategic <span>Rationale</span></h2>
+    <div class="divider"></div>
+
+    <div class="two-col" style="margin-top:2rem;">
+      <div class="prose">
+        <p>The <strong>First Scout Ranger Regiment (FSRR)</strong> maintains its headquarters and training school at <strong>Camp Pablo Tecson, Bulacan</strong> — over 900 km from Mindanao where SOCOM forces are most critically deployed. This creates <strong>extended response times, logistical strain, and reduced training relevance</strong> for the terrain and conditions Scout Rangers face in combat.</p>
+        <p>A <strong>satellite training camp at Camp Kibaritan Military Reservation</strong> (42,000 hectares, Bukidnon) positions SOCOM capability at the <strong>geographic heart of Mindanao</strong> — equidistant from all Infantry Division headquarters and threat areas. The reservation's proximity to three mountain ranges (Kitanglad, Kalatungan, Piapayungan), its adjacency to aerial and sea ports of disembarkation, and its suitability for special reconnaissance and external defense training directly support the AFP's <strong>Comprehensive Archipelagic Defense Concept (CADC)</strong>.</p>
+      </div>
+      <div>
+        <div class="stat-row" style="grid-template-columns: 1fr 1fr;">
+          <div class="stat-card">
+            <div class="value">900+</div>
+            <div class="label">KM from FSRR HQ to Mindanao AO</div>
+          </div>
+          <div class="stat-card">
+            <div class="value">5</div>
+            <div class="label">Infantry Divisions in Mindanao</div>
+          </div>
+          <div class="stat-card">
+            <div class="value">42,000</div>
+            <div class="label">Hectares Reservation Area</div>
+          </div>
+          <div class="stat-card">
+            <div class="value">1963</div>
+            <div class="label">Proclamation No. 134 Established</div>
+          </div>
+        </div>
+        <div style="margin-top:1.5rem;">
+          <div class="section-label" style="margin-bottom:0.75rem;">Active Threat Groups — Mindanao</div>
+          <div class="threat-list">
+            <div class="threat-pill">CPP-NPA Remnants</div>
+            <div class="threat-pill">Abu Sayyaf Group Remnants</div>
+            <div class="threat-pill">BIFF</div>
+            <div class="threat-pill">Dawlah Islamiyah-Maute Group Remnants</div>
+            <div class="threat-pill">Splinter/Rogue Elements from PIAG's</div>
+            <div class="threat-pill">Private Armed Groups</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ CENTRAL LOCATION ═══════════════════════════════════════ -->
+<section id="location" style="background: linear-gradient(170deg, #1a1a1a 0%, #14190f 50%, #1a1a1a 100%); min-height: auto; padding-bottom: 3rem;">
+  <div class="bg-topo"></div>
+  <span class="section-num">02</span>
+  <div class="full-width-content fade-in">
+    <div class="section-label">Section 02</div>
+    <h2>Central Location in <span>Mindanao</span></h2>
+    <div class="divider"></div>
+    <p class="prose" style="max-width:800px; margin-bottom:2rem;">Camp Kibaritan Military Reservation occupies a strategically central position within the island of Mindanao. Situated in the highlands of Bukidnon province, it is equidistant from the headquarters of all five Infantry Divisions operating across the island, enabling rapid reinforcement and coordination with any division's area of responsibility.</p>
+
+    <!-- MINDANAO MAP -->
+    <div id="mindanao-map" class="leaflet-map" style="height:600px;"></div>
+    <div style="margin-top:0.5rem; font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--steel); letter-spacing:1px;">
+      ▸ RED POLYGON: CKMR Boundary &nbsp;|&nbsp; GOLD STARS: Infantry Division HQs &nbsp;|&nbsp; DASHED LINES: Distance Radii
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ DISTANCE ANALYSIS ═══════════════════════════════════════ -->
+<section id="response" style="background: linear-gradient(170deg, #1a1a1a 0%, #1a2014 50%, #1a1a1a 100%);">
+  <div class="bg-topo"></div>
+  <span class="section-num">03</span>
+  <div class="full-width-content fade-in">
+    <div class="section-label">Section 03</div>
+    <h2>Rapid Response <span>Analysis</span></h2>
+    <div class="divider"></div>
+
+    <div class="two-col">
+      <div>
+        <p class="prose" style="margin-bottom:1.5rem;">From Camp Kibaritan, SOCOM forces can reach any Infantry Division HQ in Mindanao by rotary-wing within 90 minutes — versus the current 12–24 hour Luzon-based deployment.</p>
+
+        <table class="distance-table">
+          <thead>
+            <tr>
+              <th>Division / Installation</th>
+              <th>Location</th>
+              <th>Distance</th>
+              <th>Air (Rotary)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="unit-name">4th Infantry Division (Diamond)</td>
+              <td>Camp Evangelista, Cagayan de Oro</td>
+              <td class="dist-val">~95 km</td>
+              <td class="dist-val">~30 min</td>
+            </tr>
+            <tr>
+              <td class="unit-name">1st Infantry Division (Tabak)</td>
+              <td>Camp Sang-an, Labangan, Zamboanga del Sur</td>
+              <td class="dist-val">~210 km</td>
+              <td class="dist-val">~55 min</td>
+            </tr>
+            <tr>
+              <td class="unit-name">6th Infantry Division (Kampilan)</td>
+              <td>Camp Siongco, Awang, Maguindanao</td>
+              <td class="dist-val">~145 km</td>
+              <td class="dist-val">~40 min</td>
+            </tr>
+            <tr>
+              <td class="unit-name">10th Infantry Division (Agila)</td>
+              <td>Camp Gen. Yan, Mawab, Davao de Oro</td>
+              <td class="dist-val">~200 km</td>
+              <td class="dist-val">~50 min</td>
+            </tr>
+            <tr>
+              <td class="unit-name">11th Infantry Division (Alakdan)</td>
+              <td>Kuta Heneral Bautista, Jolo, Sulu</td>
+              <td class="dist-val">~450 km</td>
+              <td class="dist-val">~90 min</td>
+            </tr>
+            <tr style="background: rgba(201,169,62,0.05);">
+              <td class="unit-name" style="color:var(--gold);">FSRR HQ (Current)</td>
+              <td>Camp Tecson, Bulacan, Luzon</td>
+              <td class="dist-val" style="color:var(--red-glow);">~900+ km</td>
+              <td class="dist-val" style="color:var(--red-glow);">N/A Direct</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <div id="radius-map" class="leaflet-map" style="height:500px;"></div>
+        <div style="margin-top:0.5rem; font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--steel); letter-spacing:1px;">
+          ▸ Concentric rings: 100 km, 200 km, 300 km radii from CKMR center
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ BOUNDARY MAP ═══════════════════════════════════════ -->
+<section id="boundary" style="background: linear-gradient(170deg, #1a1a1a 0%, #15190e 50%, #1a1a1a 100%); min-height: auto; padding-bottom: 3rem;">
+  <div class="bg-topo"></div>
+  <span class="section-num">04</span>
+  <div class="full-width-content fade-in">
+    <div class="section-label">Section 04</div>
+    <h2>Camp Kibaritan <span>Reservation Boundary</span></h2>
+    <div class="divider"></div>
+    <div class="two-col">
+      <div>
+        <p class="prose">The Camp Kibaritan Military Reservation was established under <strong>Proclamation No. 134, s. 1963</strong>, signed by President Diosdado Macapagal, reserving parcels of public domain in the barangays of Malinao, Kibaritan, and Bacoganon in what is now Kalilangan, Bukidnon, along with portions extending into Lanao del Sur.</p>
+        <p class="prose" style="margin-top:1rem;">The reservation encompasses approximately <strong>42,000 hectares</strong> of varied terrain — from highland plateaus suitable for airborne operations and drop zones, to dense jungle canopy ideal for ranger and unconventional warfare training. Elevation ranges from approximately <strong>500m to 1,100m ASL</strong>, providing diverse training environments within a single installation.</p>
+        <div class="stat-row" style="grid-template-columns: 1fr 1fr; margin-top:2rem;">
+          <div class="stat-card">
+            <div class="value">500–1,100m</div>
+            <div class="label">Elevation Range (ASL)</div>
+          </div>
+          <div class="stat-card">
+            <div class="value">7.86°N</div>
+            <div class="label">Latitude (Central)</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div id="boundary-map" class="leaflet-map" style="height:450px;"></div>
+        <div style="margin-top:0.5rem; font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--steel); letter-spacing:1px;">
+          ▸ CKMR boundary polygon rendered from uploaded KMZ data
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ TERRAIN & ENVIRONMENT ═══════════════════════════════════════ -->
+<section id="terrain" style="background: linear-gradient(170deg, #1a1a1a 0%, #111a1a 50%, #1a1a1a 100%); min-height: auto; padding-bottom: 3rem;">
+  <div class="bg-topo"></div>
+  <span class="section-num">05</span>
+  <div class="full-width-content fade-in">
+    <div class="section-label">Section 05</div>
+    <h2>Mountain Ranges & <span>Austere Environment Training</span></h2>
+    <div class="divider"></div>
+
+    <div class="two-col">
+      <div>
+        <p class="prose">Camp Kibaritan is surrounded by three mountain ranges providing <strong>cold-weather and austere environment training</strong> unmatched by any other PA installation:</p>
+        <p class="prose" style="margin-top:1rem;"><strong>Mt. Kitanglad</strong> (2,899m), <strong>Mt. Kalatungan</strong> (2,860m), and <strong>Mt. Piapayungan</strong> (2,085m) create a 360-degree austere training envelope — summit temperatures of 5–10°C, cloud forests, high-altitude grasslands, and steep ridgelines — enabling phased progressions from jungle lowlands to mountain warfare within tactical march distance. Mt. Piapayungan's location along the Bukidnon–Lanao del Sur border also enables realistic SR training in conflict-sensitive terrain.</p>
+      </div>
+      <div>
+        <div id="mountains-map" class="leaflet-map" style="height:450px;"></div>
+        <div style="margin-top:0.5rem; font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--steel); letter-spacing:1px;">
+          ▸ TRIANGLE MARKERS: Major mountain peaks &nbsp;|&nbsp; RED: CKMR boundary
+        </div>
+        <div class="stat-row" style="grid-template-columns: repeat(3, 1fr); margin-top:1.5rem;">
+          <div class="stat-card" style="text-align:center;">
+            <div class="value" style="font-size:1.6rem;">2,899m</div>
+            <div class="label">Mt. Kitanglad</div>
+          </div>
+          <div class="stat-card" style="text-align:center;">
+            <div class="value" style="font-size:1.6rem;">2,860m</div>
+            <div class="label">Mt. Kalatungan</div>
+          </div>
+          <div class="stat-card" style="text-align:center;">
+            <div class="value" style="font-size:1.6rem;">2,085m</div>
+            <div class="label">Mt. Piapayungan</div>
+          </div>
+        </div>
+        <div class="cap-card" style="margin-top:1.5rem;">
+          <h4>Cold-Weather Training Value</h4>
+          <p>Summit temperatures of <strong style="color:var(--cream);">5–10°C</strong> enable acclimatization and high-altitude operations training without overseas deployment — a critical capability gap currently unfilled in the Philippine Army's domestic training infrastructure.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ PORTS OF DISEMBARKATION ═══════════════════════════════════════ -->
+<section id="ports" style="background: linear-gradient(170deg, #1a1a1a 0%, #1a1510 50%, #1a1a1a 100%); min-height: auto; padding-bottom: 3rem;">
+  <div class="bg-topo"></div>
+  <span class="section-num">06</span>
+  <div class="full-width-content fade-in">
+    <div class="section-label">Section 06</div>
+    <h2>Proximity to <span>Aerial & Sea Ports of Disembarkation</span></h2>
+    <div class="divider"></div>
+
+    <div class="two-col">
+      <div>
+        <p class="prose">Camp Kibaritan has <strong>close proximity to multiple aerial and sea ports</strong> enabling rapid force projection and strategic lift for training and crisis response.</p>
+
+        <div class="section-label" style="margin:2rem 0 0.75rem;">Aerial Ports of Disembarkation (APOD)</div>
+        <table class="distance-table">
+          <thead><tr><th>Airport</th><th>Type</th><th>Distance from CKMR</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="unit-name">Laguindingan Airport (CGY)</td>
+              <td>International / Major</td>
+              <td class="dist-val">~110 km</td>
+            </tr>
+            <tr>
+              <td class="unit-name">Don Carlos Airport, Bukidnon</td>
+              <td>Domestic / Community</td>
+              <td class="dist-val">~40 km</td>
+            </tr>
+            <tr>
+              <td class="unit-name">Lumbia Airport, CDO (Alternate)</td>
+              <td>Military/Domestic</td>
+              <td class="dist-val">~100 km</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="section-label" style="margin:2rem 0 0.75rem;">Sea Ports of Disembarkation (SPOD)</div>
+        <table class="distance-table">
+          <thead><tr><th>Port</th><th>Type</th><th>Distance from CKMR</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="unit-name">Cagayan de Oro Port</td>
+              <td>Major Commercial / Naval</td>
+              <td class="dist-val">~110 km</td>
+            </tr>
+            <tr>
+              <td class="unit-name">Iligan City Port</td>
+              <td>Commercial / Industrial</td>
+              <td class="dist-val">~100 km</td>
+            </tr>
+            <tr>
+              <td class="unit-name">Ozamiz City Port</td>
+              <td>Commercial</td>
+              <td class="dist-val">~140 km</td>
+            </tr>
+            <tr>
+              <td class="unit-name">Cotabato City Port</td>
+              <td>Commercial / Southern Access</td>
+              <td class="dist-val">~165 km</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <div id="ports-map" class="leaflet-map" style="height:500px;"></div>
+        <div style="margin-top:0.5rem; font-family:'JetBrains Mono',monospace; font-size:0.6rem; color:var(--steel); letter-spacing:1px;">
+          ▸ BLUE: Aerial Ports (APOD) &nbsp;|&nbsp; CYAN: Sea Ports (SPOD) &nbsp;|&nbsp; RED: CKMR
+        </div>
+        <div class="cap-card" style="margin-top:1.5rem;">
+          <h4>Strategic Lift Significance</h4>
+          <p>Multiple APOD/SPOD options within 110 km ensure that SOCOM forces at CKMR can receive reinforcements, equipment, and sustainment from Luzon or external partners within hours — and can project force outward via air or maritime insertion for crisis response across Mindanao and the Sulu Archipelago.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ NATIONAL DEFENSE POSTURE ═══════════════════════════════════════ -->
+<section id="defense-posture" style="background: linear-gradient(170deg, #1a1a1a 0%, #1a1215 50%, #1a1a1a 100%);">
+  <div class="bg-topo"></div>
+  <span class="section-num">07</span>
+  <div class="full-width-content fade-in">
+    <div class="section-label">Section 07</div>
+    <h2>National Defense <span>Posture & Continuity</span></h2>
+    <div class="divider"></div>
+    <p class="prose" style="max-width:900px; margin-bottom:2rem;">Beyond training, Camp Kibaritan serves as a critical <strong>national defense asset</strong> — contributing to force preservation, strategic depth, and continuity of operations in a full-spectrum conflict scenario.</p>
+
+    <div class="two-col">
+      <div>
+        <div class="cap-card" style="border-left-color: var(--red-glow); margin-bottom:1.5rem;">
+          <h4>Alternate Command & Control Center</h4>
+          <p>In the event of a full-blown armed conflict — particularly one involving strikes against national command infrastructure in Luzon — the concentration of AFP and Philippine Army headquarters assets in the National Capital Region represents a <strong style="color:var(--cream);">critical single point of failure</strong>. Camp Kibaritan's remote highland location in central Mindanao, far from coastlines and major urban centers, makes it an <strong style="color:var(--cream);">ideal alternate command and control (C2) site</strong> for both the Philippine Army and the AFP.</p>
+          <p style="margin-top:0.75rem;">The reservation's vast 42,000-hectare area provides ample space for dispersed C2 nodes, communications infrastructure, and supporting elements that would be extremely difficult for an adversary to target. Its proximity to multiple APOD/SPODs ensures that the alternate C2 center can maintain connectivity with deployed forces across the archipelago.</p>
+        </div>
+
+        <div class="cap-card" style="border-left-color: var(--red-glow); margin-bottom:1.5rem;">
+          <h4>Continuity of Government (COG) & Continuity of Operations (COOP)</h4>
+          <p>National defense planning requires designated <strong style="color:var(--cream);">Continuity of Government (COG)</strong> and <strong style="color:var(--cream);">Continuity of Operations (COOP)</strong> sites that can sustain government and military functions if primary installations in Luzon are degraded or denied. Camp Kibaritan satisfies the key criteria for a COG/COOP site:</p>
+          <p style="margin-top:0.75rem;">
+            <strong style="color:var(--gold);">Geographic separation</strong> — over 900 km from NCR, beyond the effective range of most conventional strike systems targeting Luzon.<br>
+            <strong style="color:var(--gold);">Terrain protection</strong> — highland elevation (500–1,100m ASL) surrounded by mountain ranges provides natural concealment and defense-in-depth.<br>
+            <strong style="color:var(--gold);">Existing legal reservation</strong> — Proclamation No. 134 already designates the land for military purposes, enabling immediate development without land acquisition delays.<br>
+            <strong style="color:var(--gold);">Multi-modal access</strong> — proximity to aerial and sea ports enables strategic lift for government continuity operations and evacuation procedures.
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <div class="cap-card" style="border-left-color: var(--red-glow); margin-bottom:1.5rem;">
+          <h4>Rearward Staging for Reserve SOF Forces</h4>
+          <p>Current SOCOM force posture concentrates the Philippines' most elite special operations forces — the FSRR, Special Forces Regiment (Airborne), and Light Reaction Regiment — <strong style="color:var(--cream);">primarily in Luzon-based installations</strong> (Camp Tecson, Fort Magsaysay). In a conflict scenario involving a near-peer adversary, these Luzon-based assets face <strong style="color:var(--cream);">immediate exposure to preemptive strikes</strong>, particularly from standoff weapons targeting known military installations.</p>
+          <p style="margin-top:0.75rem;">Camp Kibaritan provides an <strong style="color:var(--cream);">ideal rearward location for maintaining reserve SOF forces</strong> that are shielded from the immediate threat envelope facing Luzon. By pre-positioning trained SOF elements in Mindanao, the AFP ensures that even in a worst-case scenario where Luzon-based forces are degraded, a <strong style="color:var(--cream);">reconstitution capability</strong> exists — preserving the nation's ability to conduct unconventional warfare, special reconnaissance, and direct action operations from a secure rear area.</p>
+        </div>
+
+        <div class="cap-card" style="border-left-color: var(--gold); margin-bottom:1.5rem;">
+          <h4>Force Preservation & Strategic Depth</h4>
+          <p>The principle of <strong style="color:var(--cream);">strategic depth</strong> — maintaining critical military capabilities beyond the immediate reach of an adversary — is fundamental to Philippine defense planning under the Comprehensive Archipelagic Defense Concept (CADC). Establishing a SOCOM satellite camp at CKMR creates a second echelon of elite forces that can:</p>
+          <p style="margin-top:0.75rem;">
+            <strong style="color:var(--gold);">Absorb and reconstitute</strong> — receive evacuated SOF personnel from threatened Luzon installations and rapidly reconstitute operational units.<br>
+            <strong style="color:var(--gold);">Sustain UW capability</strong> — maintain the AFP's unconventional warfare capacity even if primary SOF bases are neutralized.<br>
+            <strong style="color:var(--gold);">Project force southward</strong> — defend the southern Philippines and maintain sovereignty over Mindanao, the Sulu Archipelago, and the Celebes Sea approaches.<br>
+            <strong style="color:var(--gold);">Support allied operations</strong> — serve as a staging area for combined operations with allied SOF under mutual defense treaty obligations.
+          </p>
+        </div>
+
+        <div class="stat-row" style="grid-template-columns: 1fr 1fr;">
+          <div class="stat-card" style="text-align:center;">
+            <div class="value" style="font-size:1.5rem;">900+ km</div>
+            <div class="label">From NCR — Beyond Threat Envelope</div>
+          </div>
+          <div class="stat-card" style="text-align:center;">
+            <div class="value" style="font-size:1.5rem;">42,000 ha</div>
+            <div class="label">Dispersal & Concealment Area</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ CAPABILITIES ═══════════════════════════════════════ -->
+<section id="capabilities" style="background: linear-gradient(170deg, #1a1a1a 0%, #1a1f14 50%, #1a1a1a 100%);">
+  <div class="bg-topo"></div>
+  <span class="section-num">08</span>
+  <div class="full-width-content fade-in">
+    <div class="section-label">Section 08</div>
+    <h2>Proposed Training <span>Capabilities</span></h2>
+    <div class="divider"></div>
+    <p class="prose" style="max-width:800px; margin-bottom:2rem;">The satellite camp supports SOCOM's core mission sets across three training pillars — leveraging the reservation's terrain for both <strong>internal security</strong> and <strong>external defense</strong> training.</p>
+
+    <div class="cap-grid">
+       <div class="cap-card" style="border-left-color: #4A90D9;">
+        <h4>Scout Sniper Course</h4>
+        <p>Conduct the SOCOM Scout Sniper Course within the reservation, exploiting its diverse terrain — from highland plateaus to dense jungle canopy — to train precision marksmen in field craft, long-range engagement, stalking, observation, and target interdiction. The varied elevation (500–1,100m ASL) and vegetation profiles provide <strong style="color:var(--cream);">realistic multi-environment sniper training</strong> that cannot be replicated in lowland installations, producing graduates capable of operating across the full spectrum of Philippine terrain.</p>
+      </div>
+      <div class="cap-card">
+        <h4>Airborne Operations</h4>
+        <p>Establish designated Drop Zones within the reservation's highland plateaus for static-line and freefall parachute training, supporting airborne qualification and sustainment jumps.</p>
+      </div>
+      <div class="cap-card">
+        <h4>Jungle Warfare Center</h4>
+        <p>Exploit the reservation's dense tropical canopy for advanced jungle operations training including survival, evasion, resistance, and escape (SERE) exercises.</p>
+      </div>
+      <div class="cap-card">
+        <h4>Special Reconnaissance</h4>
+        <p>Train SOCOM elements in long-range reconnaissance and surveillance in terrain that mirrors actual operational environments throughout Mindanao.</p>
+      </div>
+      <div class="cap-card">
+        <h4>Joint/Combined Training</h4>
+        <p>Host joint training exercises with Infantry Division organic units, enhancing interoperability between SOCOM elements and conventional forces in Mindanao.</p>
+      </div>
+      <div class="cap-card">
+        <h4>Ready Reaction Force</h4>
+        <p>Maintain a forward-deployed Scout Ranger element capable of rapid deployment to any threat area in Mindanao within 60 minutes by rotary-wing aircraft.</p>
+      </div>
+      <div class="cap-card" style="border-left-color: #4A90D9;">
+        <h4>Integrated Impact Area & Combined/Joint Firing Ranges</h4>
+        <p>The reservation's <strong style="color:var(--cream);">42,000-hectare expanse</strong> provides sufficient area to establish dedicated integrated impact areas and combined/joint firing ranges that support simultaneous live-fire exercises across multiple weapons systems — from individual sniper engagements to crew-served weapons and mortar fire. This enables the establishment of a <strong style="color:var(--cream);">multi-purpose range complex</strong> incorporating known-distance ranges, unknown-distance stalking lanes, urban shoot houses, and a shared impact area that supports concurrent training by SOCOM, Infantry Division, and allied partner forces — a capability currently unavailable at any single installation in Mindanao.</p>
+      </div>
+      <div class="cap-card" style="border-left-color: var(--red-glow);">
+        <h4>External & Territorial Defense Training</h4>
+        <p>CKMR's mountainous terrain replicates the topography of border regions and contested territories, enabling SOCOM to conduct realistic training scenarios that mirror <strong style="color:var(--cream);">special reconnaissance missions toward borders of potential adversaries</strong> — including infiltration routes, observation post establishment, and long-duration surveillance in denied areas. This directly supports the AFP's Comprehensive Archipelagic Defense Concept (CADC) and its shifting emphasis toward external defense readiness.</p>
+      </div>
+      <div class="cap-card" style="border-left-color: var(--red-glow);">
+        <h4>Politically Sensitive Site Reconnaissance</h4>
+        <p>The reservation's proximity to the Bukidnon–Lanao del Sur–Maguindanao corridor provides operationally realistic training scenarios for <strong style="color:var(--cream);">special reconnaissance toward politically sensitive sites</strong>, including simulated approaches to MILF/MNLF camps and autonomous region boundaries. This trains SOCOM operators in the diplomatic restraint, cultural awareness, and tactical precision required when operating near peace agreement zones and BARMM territories — skills critical to both internal security and external defense postures.</p>
+      </div>
+      <div class="cap-card" style="border-left-color: var(--red-glow);">
+        <h4>High-Altitude & Cold-Weather Operations</h4>
+        <p>Leveraging the adjacent Mt. Kitanglad (2,899m), Mt. Kalatungan (2,860m), and Mt. Piapayungan (2,085m) ranges for acclimatization, mountain warfare, and austere environment training at temperatures reaching 5–10°C — replicating conditions for potential cross-border and archipelagic defense operations in varied elevation zones.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ IMPLEMENTATION ═══════════════════════════════════════ -->
+<section id="implementation" style="background: linear-gradient(170deg, #1a1a1a 0%, #181d12 50%, #1a1a1a 100%);">
+  <div class="bg-topo"></div>
+  <span class="section-num">09</span>
+  <div class="full-width-content fade-in">
+    <div class="section-label">Section 09</div>
+    <h2>Implementation <span>Roadmap</span></h2>
+    <div class="divider"></div>
+
+    <div class="two-col">
+      <div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <h4>Phase 1 — Assessment & Coordination (Months 1–6)</h4>
+            <p>Joint field reconnaissance with ARESCOM / 4th IMBN. Stakeholder engagement at Division, SOCOM, and Army HQ levels. Secure DND endorsement and funding.</p>
+          </div>
+          <div class="timeline-item">
+            <h4>Phase 2 — Infrastructure Development (Months 6–18)</h4>
+            <p>Construct cantonment core: HQ/TOC, barracks, helipad, ranges, and training facilities per the proposed site selection plan.</p>
+          </div>
+          <div class="timeline-item">
+            <h4>Phase 3 — Initial Operating Capability (Months 18–24)</h4>
+            <p>Deploy initial cadre. Commence scout sniper and SR pilot courses. Establish comms and begin coordinated training with 4ID.</p>
+          </div>
+          <div class="timeline-item">
+            <h4>Phase 4 — Full Operating Capability (Months 24–36)</h4>
+            <p>Full training capability including airborne ops. Permanent ready-reaction force element. Joint exercises with all Mindanao Infantry Divisions.</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="section-label" style="margin-bottom:1rem; margin-top:1rem;">Strategic Advantages Summary</div>
+        <div class="cap-grid" style="grid-template-columns: 1fr;">
+          <div class="cap-card">
+            <h4>Reduced Response Time</h4>
+            <p>From 12–24 hours (Luzon-based) to <strong style="color:var(--cream);">under 90 minutes</strong> rotary-wing to any point in Mindanao.</p>
+          </div>
+          <div class="cap-card">
+            <h4>Theater-Relevant Training</h4>
+            <p>Train in the actual terrain, climate, and conditions of the deployment area.</p>
+          </div>
+          <div class="cap-card">
+            <h4>Force Multiplication</h4>
+            <p>Forward-positioned SOF enhances all five Infantry Divisions in Mindanao.</p>
+          </div>
+          <div class="cap-card">
+            <h4>Existing Legal Framework</h4>
+            <p>Proclamation No. 134, s. 1963 — no land acquisition required.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ CONCLUSION ═══════════════════════════════════════ -->
+<section class="conclusion" id="conclusion">
+  <div class="bg-topo"></div>
+  <div class="content fade-in" style="position:relative; z-index:2;">
+    <div class="section-label" style="text-align:center;">Conclusion</div>
+    <h2 style="text-align:center;">The <span>Strategic Imperative</span></h2>
+    <div class="divider center"></div>
+    <p class="final-statement">
+      Camp Kibaritan Military Reservation's central position in Mindanao, its 42,000-hectare training area, proximity to three mountain ranges, adjacency to aerial and sea ports, suitability as an alternate C2/COOP site, and its existing legal status under Proclamation No. 134 make it the optimal site for the FSRR–SOCOM satellite training camp — transforming SOCOM's posture from reactive to proactive.
+    </p>
+
+    <div style="margin-top:2rem; max-width:900px; margin-left:auto; margin-right:auto;">
+      <div class="section-label" style="margin-bottom:1rem; text-align:center;">Requested Actions</div>
+      <div style="background:rgba(42,54,33,0.4); border-left:4px solid var(--gold); padding:0.8rem 1.2rem; margin:0.6rem 0;">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--gold);">RA-1</span>
+        <span style="font-size:0.9rem; color:var(--cream); margin-left:0.8rem;"><strong>Approve in principle</strong> the establishment of the FSRR–SOCOM Satellite Training Site at Camp Kibaritan.</span>
+      </div>
+      <div style="background:rgba(42,54,33,0.4); border-left:4px solid var(--gold); padding:0.8rem 1.2rem; margin:0.6rem 0;">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--gold);">RA-2</span>
+        <span style="font-size:0.9rem; color:var(--cream); margin-left:0.8rem;"><strong>Direct ARESCOM / 4th IMBN</strong> to coordinate with FSRR for joint reconnaissance and ground-truth survey.</span>
+      </div>
+      <div style="background:rgba(42,54,33,0.4); border-left:4px solid var(--gold); padding:0.8rem 1.2rem; margin:0.6rem 0;">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--gold);">RA-3</span>
+        <span style="font-size:0.9rem; color:var(--cream); margin-left:0.8rem;"><strong>Direct PAFC / Army Budget Office</strong> to include initial site development in the next programmed budget cycle.</span>
+      </div>
+      <div style="background:rgba(42,54,33,0.4); border-left:4px solid var(--gold); padding:0.8rem 1.2rem; margin:0.6rem 0;">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--gold);">RA-4</span>
+        <span style="font-size:0.9rem; color:var(--cream); margin-left:0.8rem;"><strong>Endorse to CG AFP / CSAFP</strong> for inclusion in the AFP Capability Upgrade Program and SOCOM Force Development Plan.</span>
+      </div>
+      <div style="background:rgba(42,54,33,0.4); border-left:4px solid var(--gold); padding:0.8rem 1.2rem; margin:0.6rem 0;">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--gold);">RA-5</span>
+        <span style="font-size:0.9rem; color:var(--cream); margin-left:0.8rem;"><strong>Authorize FSRR</strong> to coordinate with allied partners for potential FMF, OHASA, or bilateral infrastructure support.</span>
+      </div>
+    </div>
+    <div style="margin-top:3rem;">
+      <div class="stat-row" style="max-width:1000px; margin:0 auto; grid-template-columns: repeat(4, 1fr);">
+        <div class="stat-card" style="text-align:center; border-left:none; border-top:3px solid var(--gold);">
+          <div class="value" style="font-size:1.5rem;">Central</div>
+          <div class="label">Strategic Position</div>
+        </div>
+        <div class="stat-card" style="text-align:center; border-left:none; border-top:3px solid var(--gold);">
+          <div class="value" style="font-size:1.5rem;">&lt;90 min</div>
+          <div class="label">Response to Any AO</div>
+        </div>
+        <div class="stat-card" style="text-align:center; border-left:none; border-top:3px solid var(--red-glow);">
+          <div class="value" style="font-size:1.5rem;">Alt C2</div>
+          <div class="label">COG / COOP Site</div>
+        </div>
+        <div class="stat-card" style="text-align:center; border-left:none; border-top:3px solid var(--gold);">
+          <div class="value" style="font-size:1.5rem;">42,000 ha</div>
+          <div class="label">Training & Dispersal Area</div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:4rem; font-family:'JetBrains Mono',monospace; font-size:0.6rem; letter-spacing:3px; color:var(--steel); text-transform:uppercase;">
+      First Scout Ranger Regiment • Special Operations Command • Philippine Army
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════ SCRIPTS ═══════════════════════════════════════ -->
+<script>
+// CKMR Boundary coordinates from KMZ
+const ckmrCoords = [
+  [7.829592272996237, 124.7056161752687],
+  [7.828513676871143, 124.7068620597556],
+  [7.827338585912768, 124.7082241573536],
+  [7.826899812236021, 124.7084227645802],
+  [7.824281294640899, 124.7075499571872],
+  [7.823422330832859, 124.7073617759813],
+  [7.8233272984675, 124.7072339036214],
+  [7.821996960215054, 124.7036755927191],
+  [7.82208026538291, 124.7028123364341],
+  [7.818621600901097, 124.7019102481838],
+  [7.817014193906116, 124.6992800291696],
+  [7.818223091548373, 124.6979412203583],
+  [7.819508529833145, 124.6965431401408],
+  [7.816784218580806, 124.6940747827556],
+  [7.816850630718673, 124.694008000678],
+  [7.814371590334714, 124.6917445006216],
+  [7.812454038043483, 124.6900642539482],
+  [7.812404065084883, 124.689982778643],
+  [7.810263164859726, 124.6881827578631],
+  [7.808247397379332, 124.6864982647839],
+  [7.808082923535803, 124.6863825126159],
+  [7.80612077680453, 124.6847073354167],
+  [7.803603198534942, 124.6824821476543],
+  [7.804136531716133, 124.6816688162673],
+  [7.805110601600065, 124.681121168885],
+  [7.808706594054928, 124.6823008561374],
+  [7.808588983496628, 124.679464096211],
+  [7.808449565727813, 124.6782914007746],
+  [7.809008793130303, 124.6778892186943],
+  [7.809364503295814, 124.6776369769054],
+  [7.810896761541471, 124.6782977791483],
+  [7.811958491441761, 124.678998840061],
+  [7.812842966407586, 124.6788316947627],
+  [7.958152263058025, 124.5123302020286],
+  [8.030816146292345, 124.5671329998343],
+  [8.06593769334021, 124.5972554932556],
+  [8.038706946474816, 124.6397644224799],
+  [8.020417423821778, 124.6616704212983],
+  [8.061535067237196, 124.7298072590273],
+  [7.929407547319791, 124.7864361066807],
+  [7.932491443337628, 124.696246656684],
+  [7.913685710978135, 124.6936098829269],
+  [7.887268063447783, 124.6899061540349],
+  [7.829014053507649, 124.6870754934505],
+  [7.829592272996237, 124.7056161752687]
+];
+
+// CKMR center (approx)
+const ckmrCenter = [7.92, 124.65];
+
+// Infantry Division locations
+const divisions = [
+  {
+    name: "4th Infantry Division (Diamond)",
+    short: "4ID",
+    location: "Camp Evangelista, Cagayan de Oro",
+    lat: 8.4723, lng: 124.6319,
+    dist: "~95 km"
+  },
+  {
+    name: "1st Infantry Division (Tabak)",
+    short: "1ID",
+    location: "Camp Sang-an, Labangan, Zamboanga del Sur",
+    lat: 7.8286, lng: 123.5152,
+    dist: "~210 km"
+  },
+  {
+    name: "6th Infantry Division (Kampilan)",
+    short: "6ID",
+    location: "Camp Siongco, Awang, Maguindanao",
+    lat: 7.1713, lng: 124.2568,
+    dist: "~145 km"
+  },
+  {
+    name: "10th Infantry Division (Agila)",
+    short: "10ID",
+    location: "Camp Gen. Yan, Mawab, Davao de Oro",
+    lat: 7.3919, lng: 125.9958,
+    dist: "~200 km"
+  },
+  {
+    name: "11th Infantry Division (Alakdan)",
+    short: "11ID",
+    location: "Kuta Heneral Bautista, Jolo, Sulu",
+    lat: 6.0514, lng: 121.0027,
+    dist: "~450 km"
+  }
+];
+
+// ---- MAP 1: MINDANAO OVERVIEW ----
+const map1 = L.map('mindanao-map', {
+  center: [7.5, 124.5],
+  zoom: 7,
+  zoomControl: true,
+  scrollWheelZoom: false
+});
+
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  attribution: '© OpenStreetMap © CARTO',
+  maxZoom: 18
+}).addTo(map1);
+
+// CKMR Boundary polygon
+const ckmrPolygon1 = L.polygon(ckmrCoords, {
+  color: '#C13B1B',
+  weight: 2,
+  fillColor: '#C13B1B',
+  fillOpacity: 0.25,
+  dashArray: null
+}).addTo(map1);
+
+// CKMR Label
+L.marker(ckmrCenter, {
+  icon: L.divIcon({
+    className: '',
+    html: '<div style="background:rgba(193,59,27,0.85); color:#fff; font-family:Oswald,sans-serif; font-size:11px; font-weight:600; letter-spacing:2px; text-transform:uppercase; padding:4px 10px; border-radius:2px; white-space:nowrap; border:1px solid rgba(255,255,255,0.2); box-shadow:0 2px 8px rgba(0,0,0,0.5);">★ CAMP KIBARITAN (CKMR)</div>',
+    iconAnchor: [100, 15]
+  })
+}).addTo(map1);
+
+// Division markers
+const goldIcon = (label) => L.divIcon({
+  className: '',
+  html: `<div style="position:relative;">
+    <div style="width:24px;height:24px;background:rgba(201,169,62,0.9);border:2px solid #E5C551;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:Oswald,sans-serif;font-size:9px;font-weight:700;color:#1A1A1A;box-shadow:0 2px 8px rgba(0,0,0,0.5);">★</div>
+    <div style="position:absolute;top:28px;left:50%;transform:translateX(-50%);white-space:nowrap;font-family:'JetBrains Mono',monospace;font-size:9px;color:#C9A93E;letter-spacing:1px;font-weight:500;text-shadow:0 1px 3px rgba(0,0,0,0.8);">${label}</div>
+  </div>`,
+  iconAnchor: [12, 12]
+});
+
+divisions.forEach(d => {
+  L.marker([d.lat, d.lng], { icon: goldIcon(d.short) }).addTo(map1)
+    .bindPopup(`<b style="font-family:Oswald,sans-serif;letter-spacing:1px;">${d.name}</b><br><span style="font-size:12px;">${d.location}</span><br><span style="color:#C9A93E;font-weight:bold;">${d.dist} from CKMR</span>`);
+
+  // Lines from CKMR to each division
+  L.polyline([ckmrCenter, [d.lat, d.lng]], {
+    color: '#C9A93E',
+    weight: 1.5,
+    opacity: 0.4,
+    dashArray: '8,6'
+  }).addTo(map1);
+});
+
+// ---- MAP 2: RADIUS MAP ----
+const map2 = L.map('radius-map', {
+  center: ckmrCenter,
+  zoom: 7,
+  zoomControl: true,
+  scrollWheelZoom: false
+});
+
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  attribution: '© OpenStreetMap © CARTO',
+  maxZoom: 18
+}).addTo(map2);
+
+// Radius circles
+[100, 200, 300].forEach((r, i) => {
+  L.circle(ckmrCenter, {
+    radius: r * 1000,
+    color: '#C9A93E',
+    weight: 1.5,
+    opacity: 0.3 + i * 0.1,
+    fillColor: '#C9A93E',
+    fillOpacity: 0.02 + i * 0.01,
+    dashArray: '10,8'
+  }).addTo(map2);
+
+  // Label
+  const labelLat = ckmrCenter[0] + (r * 1000 / 111320);
+  L.marker([labelLat, ckmrCenter[1]], {
+    icon: L.divIcon({
+      className: '',
+      html: `<div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:#C9A93E;opacity:0.7;">${r} km</div>`,
+      iconAnchor: [-5, 10]
+    })
+  }).addTo(map2);
+});
+
+// CKMR marker on radius map
+L.marker(ckmrCenter, {
+  icon: L.divIcon({
+    className: '',
+    html: '<div style="width:16px;height:16px;background:#C13B1B;border:2px solid #fff;border-radius:50%;box-shadow:0 0 15px rgba(193,59,27,0.6);"></div>',
+    iconAnchor: [8, 8]
+  })
+}).addTo(map2);
+
+// Division markers on radius map
+divisions.forEach(d => {
+  L.marker([d.lat, d.lng], { icon: goldIcon(d.short) }).addTo(map2);
+  L.polyline([ckmrCenter, [d.lat, d.lng]], {
+    color: '#C9A93E',
+    weight: 1,
+    opacity: 0.3,
+    dashArray: '5,5'
+  }).addTo(map2);
+});
+
+// ---- MAP 3: BOUNDARY DETAIL ----
+const map3 = L.map('boundary-map', {
+  center: [7.92, 124.65],
+  zoom: 10,
+  zoomControl: true,
+  scrollWheelZoom: false
+});
+
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  attribution: '© OpenStreetMap © CARTO',
+  maxZoom: 18
+}).addTo(map3);
+
+// CKMR Boundary polygon - detailed
+const ckmrPolygon3 = L.polygon(ckmrCoords, {
+  color: '#C13B1B',
+  weight: 3,
+  fillColor: '#C13B1B',
+  fillOpacity: 0.15,
+}).addTo(map3);
+
+map3.fitBounds(ckmrPolygon3.getBounds().pad(0.15));
+
+// Center marker
+L.marker(ckmrCenter, {
+  icon: L.divIcon({
+    className: '',
+    html: '<div style="background:rgba(193,59,27,0.85); color:#fff; font-family:Oswald,sans-serif; font-size:10px; font-weight:600; letter-spacing:1px; padding:3px 8px; border-radius:2px; white-space:nowrap; border:1px solid rgba(255,255,255,0.2);">CKMR CENTER</div>',
+    iconAnchor: [45, 10]
+  })
+}).addTo(map3);
+
+// Coordinate labels at corners
+const corners = [
+  { lat: 8.065, lng: 124.597, label: "N: 8.066°N" },
+  { lat: 7.804, lng: 124.512, label: "W: 124.512°E" },
+  { lat: 7.804, lng: 124.786, label: "E: 124.786°E" },
+  { lat: 7.804, lng: 124.682, label: "S: 7.803°N" }
+];
+corners.forEach(c => {
+  L.marker([c.lat, c.lng], {
+    icon: L.divIcon({
+      className: '',
+      html: `<div style="font-family:'JetBrains Mono',monospace;font-size:8px;color:#C9A93E;opacity:0.6;">${c.label}</div>`,
+      iconAnchor: [30, 5]
+    })
+  }).addTo(map3);
+});
+
+// ---- MAP 4: MOUNTAINS ----
+const map4 = L.map('mountains-map', {
+  center: [7.92, 124.68],
+  zoom: 9,
+  zoomControl: true,
+  scrollWheelZoom: false
+});
+
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  attribution: '© OpenStreetMap © CARTO',
+  maxZoom: 18
+}).addTo(map4);
+
+// CKMR boundary on mountains map
+L.polygon(ckmrCoords, {
+  color: '#C13B1B',
+  weight: 2,
+  fillColor: '#C13B1B',
+  fillOpacity: 0.15
+}).addTo(map4);
+
+// Mountain peaks
+const mountains = [
+  { name: "Mt. Kitanglad", elev: "2,899m", lat: 8.1317, lng: 124.9167 },
+  { name: "Mt. Kalatungan", elev: "2,860m", lat: 7.9500, lng: 124.8833 },
+  { name: "Mt. Piapayungan", elev: "2,085m", lat: 7.8167, lng: 124.3833 }
+];
+
+const mtnIcon = (name, elev) => L.divIcon({
+  className: '',
+  html: `<div style="position:relative;">
+    <div style="width:0;height:0;border-left:12px solid transparent;border-right:12px solid transparent;border-bottom:20px solid rgba(100,180,100,0.9);filter:drop-shadow(0 2px 4px rgba(0,0,0,0.5));"></div>
+    <div style="position:absolute;top:24px;left:50%;transform:translateX(-50%);white-space:nowrap;font-family:'JetBrains Mono',monospace;font-size:9px;color:#88CC88;letter-spacing:1px;font-weight:500;text-shadow:0 1px 3px rgba(0,0,0,0.8);">${name}<br><span style="color:#C9A93E;">${elev}</span></div>
+  </div>`,
+  iconAnchor: [12, 20]
+});
+
+mountains.forEach(m => {
+  L.marker([m.lat, m.lng], { icon: mtnIcon(m.name, m.elev) }).addTo(map4)
+    .bindPopup(`<b style="font-family:Oswald,sans-serif;letter-spacing:1px;">${m.name}</b><br><span style="color:#88CC88;font-weight:bold;">${m.elev} ASL</span>`);
+  // Line from CKMR to mountain
+  L.polyline([ckmrCenter, [m.lat, m.lng]], {
+    color: '#88CC88',
+    weight: 1.5,
+    opacity: 0.35,
+    dashArray: '6,6'
+  }).addTo(map4);
+});
+
+// CKMR label on mountains map
+L.marker(ckmrCenter, {
+  icon: L.divIcon({
+    className: '',
+    html: '<div style="background:rgba(193,59,27,0.85); color:#fff; font-family:Oswald,sans-serif; font-size:9px; font-weight:600; letter-spacing:1px; padding:3px 8px; border-radius:2px; white-space:nowrap; border:1px solid rgba(255,255,255,0.2);">CKMR</div>',
+    iconAnchor: [20, 10]
+  })
+}).addTo(map4);
+
+// ---- MAP 5: PORTS ----
+const map5 = L.map('ports-map', {
+  center: [7.95, 124.55],
+  zoom: 8,
+  zoomControl: true,
+  scrollWheelZoom: false
+});
+
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  attribution: '© OpenStreetMap © CARTO',
+  maxZoom: 18
+}).addTo(map5);
+
+// CKMR boundary on ports map
+L.polygon(ckmrCoords, {
+  color: '#C13B1B',
+  weight: 2,
+  fillColor: '#C13B1B',
+  fillOpacity: 0.15
+}).addTo(map5);
+
+// CKMR center marker
+L.marker(ckmrCenter, {
+  icon: L.divIcon({
+    className: '',
+    html: '<div style="width:14px;height:14px;background:#C13B1B;border:2px solid #fff;border-radius:50%;box-shadow:0 0 12px rgba(193,59,27,0.6);"></div>',
+    iconAnchor: [7, 7]
+  })
+}).addTo(map5);
+
+// Aerial ports (blue)
+const apods = [
+  { name: "Laguindingan Airport (CGY)", lat: 8.6122, lng: 124.4511 },
+  { name: "Don Carlos Airport, Bukidnon", lat: 7.7065, lng: 124.9492 },
+  { name: "Lumbia Airport, CDO", lat: 8.4141, lng: 124.6117 }
+];
+
+const apodIcon = (name) => L.divIcon({
+  className: '',
+  html: `<div style="position:relative;">
+    <div style="width:20px;height:20px;background:rgba(59,130,246,0.9);border:2px solid #93C5FD;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:11px;box-shadow:0 2px 6px rgba(0,0,0,0.5);">✈</div>
+    <div style="position:absolute;top:24px;left:50%;transform:translateX(-50%);white-space:nowrap;font-family:'JetBrains Mono',monospace;font-size:8px;color:#93C5FD;letter-spacing:0.5px;text-shadow:0 1px 3px rgba(0,0,0,0.8);">${name}</div>
+  </div>`,
+  iconAnchor: [10, 10]
+});
+
+apods.forEach(p => {
+  L.marker([p.lat, p.lng], { icon: apodIcon(p.name) }).addTo(map5);
+  L.polyline([ckmrCenter, [p.lat, p.lng]], {
+    color: '#3B82F6',
+    weight: 1.5,
+    opacity: 0.35,
+    dashArray: '6,6'
+  }).addTo(map5);
+});
+
+// Sea ports (cyan)
+const spods = [
+  { name: "Cagayan de Oro Port", lat: 8.4833, lng: 124.6500 },
+  { name: "Iligan City Port", lat: 8.2281, lng: 124.2457 },
+  { name: "Ozamiz City Port", lat: 8.1481, lng: 123.8481 },
+  { name: "Cotabato City Port", lat: 7.2236, lng: 124.2464 }
+];
+
+const spodIcon = (name) => L.divIcon({
+  className: '',
+  html: `<div style="position:relative;">
+    <div style="width:20px;height:20px;background:rgba(6,182,212,0.9);border:2px solid #67E8F9;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:11px;box-shadow:0 2px 6px rgba(0,0,0,0.5);">⚓</div>
+    <div style="position:absolute;top:24px;left:50%;transform:translateX(-50%);white-space:nowrap;font-family:'JetBrains Mono',monospace;font-size:8px;color:#67E8F9;letter-spacing:0.5px;text-shadow:0 1px 3px rgba(0,0,0,0.8);">${name}</div>
+  </div>`,
+  iconAnchor: [10, 10]
+});
+
+spods.forEach(p => {
+  L.marker([p.lat, p.lng], { icon: spodIcon(p.name) }).addTo(map5);
+  L.polyline([ckmrCenter, [p.lat, p.lng]], {
+    color: '#06B6D4',
+    weight: 1.5,
+    opacity: 0.35,
+    dashArray: '6,6'
+  }).addTo(map5);
+});
+
+// ---- SCROLL ANIMATIONS ----
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// Invalidate map sizes after load
+setTimeout(() => {
+  map1.invalidateSize();
+  map2.invalidateSize();
+  map3.invalidateSize();
+  map4.invalidateSize();
+  map5.invalidateSize();
+}, 500);
+</script>
+
+</body>
+</html>
